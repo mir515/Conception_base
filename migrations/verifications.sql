@@ -28,3 +28,17 @@ FROM
 LEFT JOIN 
     client cl ON c.client_id = cl.id;
 
+SELECT 
+    s.nom AS serveur_nom,
+    COUNT(DISTINCT c.id) AS nombre_commandes,
+    SUM(cd.quantite * p.prix) AS chiffre_affaires
+FROM 
+    serveur s
+LEFT JOIN 
+    commande c ON s.id = c.serveur_id
+LEFT JOIN 
+    commande_detail cd ON c.id = cd.commande_id
+LEFT JOIN 
+    plat p ON cd.plat_id = p.id
+GROUP BY 
+    s.id, s.nom;
