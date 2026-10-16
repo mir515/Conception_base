@@ -32,3 +32,13 @@ car a chaque fois qu'on doit modifier une categorie ,on doit modifie chaque lign
 ## Piege
 
 - La quantite est placé dans commande_detail
+
+## Etape 4
+
+- client( id ,nom)
+- commande ( id ,date , client_id)
+
+## Piege
+
+- Aucune contrainte NOT NULL n'a été spécifiée. La colonne accepte donc des valeurs NULL, ce qui est indispensable pour laisser les commandes des clients de passage sans client attitré.
+Il faut utiliser un LEFT JOIN .Le LEFT JOIN permet de conserver toutes les lignes de la table commande, qu'elles soient rattachées à un client ou non.

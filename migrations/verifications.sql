@@ -14,3 +14,17 @@ JOIN
     plat p ON cd.plat_id = p.id
 GROUP BY 
     c.id;
+
+SELECT 
+    c.id AS commande_id,
+    c.date,
+   
+   CASE
+        WHEN cl.nom IS NULL THEN 'Client de passage'
+        ELSE cl.nom
+   END 
+FROM 
+    commande c
+LEFT JOIN 
+    client cl ON c.client_id = cl.id;
+
